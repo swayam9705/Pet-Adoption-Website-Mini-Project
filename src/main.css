@@ -11,10 +11,17 @@
     --white: #fff;
     --light: #F3E2BF;
     --dark: #F68C4A;
+    /* --dark: #b76916; */
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
     overflow-x: hidden;
+    color: rgb(60, 60, 60);
+    width: 100vw;
 }
 
 a {

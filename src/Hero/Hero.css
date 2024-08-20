@@ -1,5 +1,5 @@
 .Hero {
-    height: calc(100vh - 70px);
+    height: 100vh;
     display: grid;
     grid-template-areas:
         "a c"
@@ -24,13 +24,14 @@
 
 .Hero__adopt-btn {
     position: relative;
-    padding: 1rem;
-    outline: 1px solid var(--dark);
-    background: none;
-    border-radius: 10px;
-    color: var(--dark);
-    font-size: 1rem;
+    padding: 1rem 2rem;
+    background: var(--dark);
+    border-radius: 7px;
+    color: var(--white);
+    font-size: 1.2rem;
     margin: 0 7rem;
+    min-width: 170px;
+    z-index: 0;
 }
 
 
@@ -67,5 +68,10 @@
         /* outline: 2px solid; */
         font-size: 2rem;
         padding: 20px 50px;
+    }
+
+    .Hero__small-area {
+        display: grid;
+        place-items: center;
     }
 }

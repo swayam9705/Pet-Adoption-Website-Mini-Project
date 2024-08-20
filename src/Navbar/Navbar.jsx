@@ -23,7 +23,7 @@ function Navbar() {
             <ul className="Navbar__midsection">
                 <li className="Navbar__link"><Link to={"#"}>Home</Link></li>
                 <li className="Navbar__link"><Link to={"#"}>Pets</Link></li>
-                <li className="Navbar__link"><Link to={"#"}>About Us</Link></li>
+                <li className="Navbar__link"><a href="#AboutUs">About Us</a></li>
                 <li className="Navbar__link"><Link to={"#"}>Contact Us</Link></li>
             </ul>
             <div className="Navbar__right">

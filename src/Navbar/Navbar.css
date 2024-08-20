@@ -3,6 +3,11 @@
     height: 70px;
     display: flex;
     justify-content: space-evenly;
+    /* position: fixed; */
+    /* background: white; */
+    /* background: #fffbf5; */
+    opacity: 0.99;
+    z-index: 100;
 }
 
 .Navbar__logo img {
@@ -41,17 +46,25 @@
     z-index: 999;
     position: absolute;
     top: 0;
-    right: -100%;
+    right: -150%;
     height: 100vh;
     min-height: 500px;
     width: 100vw;
     background: var(--light);
-    transition: 0.2s;
+    transition: 0.7s ease-in
 }
 
 .Navbar__midsection.Navbar__sidebar li {
     margin: 10px;
     text-transform: uppercase;
+}
+
+.Navbar__midsection.Navbar__sidebar li:first-child {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 2rem;
+    transform: scale(1.5);
 }
 
 .Navbar__midsection.Navbar__sidebar.open {
