@@ -4,12 +4,12 @@ function AboutUs() {
     return (
         <section id="AboutUs" className="AboutUs">
             <h2 className="AboutUs__title">About Us</h2>
-            <div className="AboutUs__text text-1">Lorem ipsum dolor sit obcaecati quas, molestias est, sit doloremque suscipit odio? Ratione soluta dignissimos doloribus quaerat laborum quis, beatae neque, adipisci vel fuga mollitia fugiat, dolore ipsam r distinctio minima dolorem nemo ab veniam, ipsa cupiditate explicabo, velit numquam tempore modi.</div>
+            <div className="AboutUs__text text-1">We're passionate about finding loving homes for abandoned and adoptable animals. Our mission is to create a community where every pet has a chance to experience the joy of a forever family.</div>
             <div className="AboutUs__image image-1">
                 <img src="https://media.istockphoto.com/id/1334498420/photo/happy-woman-holding-bulldog.webp?s=2048x2048&w=is&k=20&c=YZT1xWEQPurvW_CWuXPDHtqL149tdGNvVtys9N6FC0A=" alt="Woman holding a bulldog" />
                 <div className="AboutUs__image__shadow"></div>
             </div>
-            <div className="AboutUs__text text-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, officiis, explicabo saepe ipsa odio amet veniam ab magni alias nuam repellat, autem maxime quis iure beatae quisquam eaque perferendis alias nostrum a exercitationem neque debitis minus, ipsum voluptatem. <br />
+            <div className="AboutUs__text text-2">We believe that every pet deserves a safe and loving home. Our team is committed to providing the best care and support to both the animals and their adoptive families. We work tirelessly to match pets with their perfect human companions.<br />
             <button className="Hero__adopt-btn">Donate</button> 
             </div>
             <div className="AboutUs__image image-2">

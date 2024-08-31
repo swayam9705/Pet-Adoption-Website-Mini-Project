@@ -21,14 +21,14 @@ function Navbar() {
                 <img src={Logo} alt="" />
             </div>
             <ul className="Navbar__midsection">
-                <li className="Navbar__link"><Link to={"#"}>Home</Link></li>
+                <li className="Navbar__link"><Link to={"/"}>Home</Link></li>
                 <li className="Navbar__link"><Link to={"#"}>Pets</Link></li>
                 <li className="Navbar__link"><a href="#AboutUs">About Us</a></li>
                 <li className="Navbar__link"><Link to={"#"}>Contact Us</Link></li>
             </ul>
             <div className="Navbar__right">
                 <Link to={"#"} className="Navbar__btn">Donate Us</Link>
-                <Link to={"#"} className="Navbar__auth Navbar__btn">Sign Up</Link>
+                <Link to={"/auth"} className="Navbar__auth Navbar__btn">Sign Up</Link>
             </div>
             <div
                 onClick={toggleSidebar}
@@ -36,13 +36,12 @@ function Navbar() {
             ><MenuIcon /></div>
             <ul ref={sidebar} className="Navbar__midsection Navbar__sidebar ">
                 <li onClick={toggleSidebar}><CloseIcon /></li>
-                <li className="Navbar__link"><Link to={"#"}>Home</Link></li>
-                <li className="Navbar__link"><Link to={"#"}>Pets</Link></li>
-                <li className="Navbar__link"><Link to={"#"}>About Us</Link></li>
-                <li className="Navbar__link"><Link to={"#"}>Contact Us</Link></li>
-                <li className="Navbar__link"><Link to={"#"}>Donate Us</Link></li>
-                <li className="Navbar__link"><Link to={"#"}>Sign Up</Link></li>
-                <li className="Navbar__link"><Link to={"#"}>Login</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/"}>Home</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Pets</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>About Us</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Contact Us</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Donate Us</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/auth"}>Sign Up</Link></li>
             </ul>
         </div>
     )

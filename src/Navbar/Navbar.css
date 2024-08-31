@@ -3,11 +3,7 @@
     height: 70px;
     display: flex;
     justify-content: space-evenly;
-    /* position: fixed; */
-    /* background: white; */
-    /* background: #fffbf5; */
     opacity: 0.99;
-    z-index: 100;
 }
 
 .Navbar__logo img {
@@ -43,15 +39,15 @@
 }
 
 .Navbar__midsection.Navbar__sidebar {
-    z-index: 999;
     position: absolute;
     top: 0;
-    right: -150%;
+    right: -110%;
     height: 100vh;
     min-height: 500px;
     width: 100vw;
     background: var(--light);
-    transition: 0.7s ease-in
+    transition: 0.5s ease-in;
+    z-index: 99;
 }
 
 .Navbar__midsection.Navbar__sidebar li {
@@ -93,7 +89,6 @@
 }
 
 .Navbar__auth::before {
-    z-index: 0;
     pointer-events: none;
     position: absolute;
     bottom: 0;

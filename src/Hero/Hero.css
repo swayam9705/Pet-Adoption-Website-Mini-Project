@@ -31,7 +31,7 @@
     font-size: 1.2rem;
     margin: 0 7rem;
     min-width: 170px;
-    z-index: 0;
+    z-index: -1;
 }
 
 
