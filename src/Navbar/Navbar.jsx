@@ -7,12 +7,33 @@ import CloseIcon from '@mui/icons-material/Close'
 import "./Navbar.css"
 import { useRef } from "react"
 
+// Context
+import { useStateValue } from "../ContextManager"
+
+// firebase
+import { auth } from "../config/firebase_config"
+import { onAuthStateChanged, signOut } from "firebase/auth"
+
 function Navbar() {
+
+    const [state, dispatch ] = useStateValue()
 
     const sidebar = useRef(null)
 
     const toggleSidebar = () => {
         sidebar.current.classList.toggle("open")
+    }
+
+    const handleLogout = () => {
+        signOut(auth)
+            .then(() => {
+                dispatch({
+                    type: "LOGGED_OUT"
+                })
+            })
+            .catch((error) => {
+                console.log(error)
+            })
     }
 
     return (
@@ -27,8 +48,18 @@ function Navbar() {
                 <li className="Navbar__link"><Link to={"#"}>Contact Us</Link></li>
             </ul>
             <div className="Navbar__right">
-                <Link to={"#"} className="Navbar__btn">Donate Us</Link>
-                <Link to={"/auth"} className="Navbar__auth Navbar__btn">Sign Up</Link>
+                <Link to={"#"} className="Navbar__btn">Donate</Link>
+                <div className="Navbar__dropdown">
+                    <Link to={"/auth"} className="Navbar__auth Navbar__btn">{ state.isUserLoggedIn ? state.user.email : "Sign in"}
+                    </Link>
+                    {
+                        state.isUserLoggedIn &&
+                        <ul className="dropdown-box">
+                            <li><button onClick={handleLogout}>Logout</button></li>
+                            <li><Link to={"#"}>Profile</Link></li>
+                        </ul>
+                    }
+                </div>
             </div>
             <div
                 onClick={toggleSidebar}

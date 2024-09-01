@@ -1,11 +1,17 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 // firebase auth
 import { auth } from "../config/firebase_config"
 import { signInWithEmailAndPassword } from "firebase/auth"
-import { redirect } from "react-router-dom"
+
+// Context
+import { useStateValue } from "../ContextManager"
 
 function Login() {
+
+    const [ _, dispatch ] = useStateValue()
+    const navigate = useNavigate()
 
     const [ user, setUser ] = useState({ email: "", password: ""})
     const [ isInvalid, setIsInvalid ] = useState(false)
@@ -17,9 +23,13 @@ function Login() {
             await signInWithEmailAndPassword(auth, user.email, user.password)
                 .then((userCredential) => {
                     const user = userCredential.user
-                    console.log("user is logged in.")
-                    console.log(user)
-                    redirect("/")
+                    dispatch({
+                        type: "LOGGED_IN",
+                        user: {
+                            email: user.email
+                        }
+                    })
+                    navigate("/")
                 })
                 .catch((error) => {
                     console.log(error)

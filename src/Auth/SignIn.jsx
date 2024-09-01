@@ -1,25 +1,36 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
 
 // firebase auth
 import { auth } from "../config/firebase_config"
 import { createUserWithEmailAndPassword } from "firebase/auth"
-import { redirect } from "react-router-dom"
+
+// Context
+import { useStateValue } from "../ContextManager"
+
 
 function SignIn() {
+
+    const [ _, dispatch ] = useStateValue()
+    const navigate = useNavigate()
 
     const [ user, setUser ] = useState({ email: "", password: ""})
     const [ isInvalid, setIsInvalid ] = useState(false)
 
     const handleClick = async () => {
-        if (user.email === "" || user.password === "") {
+       if (user.email === "" || user.password === "") {
             setIsInvalid(true)
         } else {
             await createUserWithEmailAndPassword(auth, user.email, user.password)
-                .then((result) => {
-                    const signedInUser = result.user
-                    console.log("user is signed in")
-                    console.log(signedInUser)
-                    redirect("/")
+                .then((userCredential) => {
+                    const user = userCredential.user
+                    dispatch({
+                        type: "LOGGED_IN",
+                        user: {
+                            email: user.email
+                        }
+                    })
+                    navigate("/")
                 })
                 .catch((error) => {
                     console.log(error)
