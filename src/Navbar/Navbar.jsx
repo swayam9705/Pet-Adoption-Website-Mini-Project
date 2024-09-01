@@ -24,6 +24,7 @@ function Navbar() {
         sidebar.current.classList.toggle("open")
     }
 
+
     const handleLogout = () => {
         signOut(auth)
             .then(() => {
