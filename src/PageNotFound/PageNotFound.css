@@ -1,0 +1,18 @@
+.PageNotFound {
+    width: 100vw;
+    max-width: 500px;
+    margin: 50px auto;
+}
+
+.PageNotFound h2 {
+    font-size: 2rem;
+}
+
+.PageNotFound p {
+    margin-top: 20px;
+}
+
+.PageNotFound a {
+    color: var(--dark);
+    text-decoration: underline;
+}
