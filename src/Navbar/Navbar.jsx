@@ -45,8 +45,8 @@ function Navbar() {
             <ul className="Navbar__midsection">
                 <li className="Navbar__link"><Link to={"/"}>Home</Link></li>
                 <li className="Navbar__link"><Link to={"#"}>Pets</Link></li>
-                <li className="Navbar__link"><a href="#AboutUs">About Us</a></li>
-                <li className="Navbar__link"><Link to={"#"}>Contact Us</Link></li>
+                <li className="Navbar__link"><Link to="aboutus">About Us</Link></li>
+                <li className="Navbar__link"><Link to="contact">Contact Us</Link></li>
             </ul>
             <div className="Navbar__right">
                 <Link to={"#"} className="Navbar__btn">Donate</Link>
@@ -70,8 +70,8 @@ function Navbar() {
                 <li onClick={toggleSidebar}><CloseIcon /></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/"}>Home</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Pets</Link></li>
-                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>About Us</Link></li>
-                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Contact Us</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/aboutus"}>About Us</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/contact"}>Contact Us</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Donate Us</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/auth"}>Sign Up</Link></li>
             </ul>

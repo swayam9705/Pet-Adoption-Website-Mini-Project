@@ -44,6 +44,9 @@
 .Hero__image img {
     width: 100%;
     max-width: 450px;
+    box-shadow: 0 0 20px lightgrey;
+    border-radius: 10px;
+    transition: 0.3s;
 }
 
 @media (max-width: 1000px) {
@@ -65,9 +68,9 @@
     }
 
     .Hero__big-text {
-        /* outline: 2px solid; */
         font-size: 2rem;
         padding: 20px 50px;
+        text-align: center;
     }
 
     .Hero__small-area {

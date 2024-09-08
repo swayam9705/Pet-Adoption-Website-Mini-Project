@@ -1,0 +1,105 @@
+.Booking {
+    max-width: 800px;
+    width: calc(100vw - 30px);
+    box-shadow: 0 0 10px rgb(227, 227, 227);
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+.Booking__title {
+    text-align: center;
+    font-size: 2rem;
+    padding-top: 50px;
+}
+
+.Booking__form {
+    padding: 50px;
+    display: grid;
+}
+
+.form__element input {
+    height: 50px;
+    padding-left: 10px;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+.form__name {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+        "field field"
+        "firstname lastname"
+        "firstname_label lastname_label";
+    width: 100%;
+    grid-column-gap: 20px;
+}
+
+.form__field {
+    font-weight: 600;
+}
+.form__label {
+    font-style: italic;
+    /* color: var(--dark); */
+    color: rgb(157, 157, 157);
+}
+
+.form__name .form__field {
+    grid-area: field; 
+}
+
+.form__name input.firstname {
+    grid-area: firstname;
+}
+
+.form__name input.lastname {
+    grid-area: lastname;
+}
+
+.form__element {
+    margin: 20px 0;
+}
+
+.form__email, .form__contact, .form__address, .form__datetime {
+    display: flex;
+    flex-direction: column;
+}
+
+.form__datetime input {
+    /* outline: 1px solid black; */
+    width: 200px;
+    border: 1px solid black;
+    margin-top: 5px;
+}
+
+.Booking__submit {
+    height: 60px;
+    background: var(--dark);
+    color: var(--white);
+    font-size: 1.2rem;
+    border-radius: 10px;
+    transition: 0.2s;
+    text-transform: uppercase;
+    font-family: "Inter", sans-serif;
+}
+
+.Booking__submit:hover {
+    box-shadow: 0 0 10px lightgrey;
+    color: var(--dark);
+    background: var(--white);
+}
+
+@media (max-width: 1000px) {
+    .form__name {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+            "field"
+            "firstname"
+            "firstname_label"
+            "lastname"
+            "lastname_label"
+    }
+}

@@ -1,8 +1,6 @@
 .AboutUs {
     color: #333333;
     padding: 4rem;
-    /* height: 100vh; */
-    /* background: var(--light); */
     display: grid;
     grid-template-rows: 50px 1fr 1fr;
     grid-template-columns: 1fr 1fr;
@@ -27,9 +25,10 @@
     font-weight: bold;
     display: grid;
     place-items: center;
-    box-shadow: 0 0 9px lightgrey;
+    box-shadow: 0 0 50px lightgrey;
     outline: 1px solid rgb(239, 239, 239);
-    width: 500px;
+    max-width: 500px;
+    width: 90vw;
     height: 300px;
     padding: 40px;
     border-radius: 50px;
@@ -42,15 +41,16 @@
 }
 
 .AboutUs__image img {
-    outline: 10px solid var(--white);
+    outline: 10px solid var(--light);
     z-index: 5;
+    box-shadow: 20px 20px 20px rgb(218, 218, 218);
 }
 
 .AboutUs__image__shadow {
     position: absolute;
     width: 300px;
     height: 100px;
-    background: var(--white);
+    background: var(--light);
     opacity: 0.8;
     left: 0;
     bottom: 0;
@@ -58,11 +58,11 @@
 }
 
 .AboutUs__image.image-1 img {
-    border-radius: 51% 49% 62% 38% / 46% 62% 38% 54% ;
+    border-radius: 5% 95% 13% 87% / 84% 7% 93% 16%;
 }
 
 .AboutUs__image.image-2 img {
-    border-radius: 27% 73% 62% 38% / 65% 44% 56% 35%;
+    border-radius: 48% 52% 75% 25% / 37% 73% 27% 63% ;
 }
 
 .AboutUs .Hero__adopt-btn {

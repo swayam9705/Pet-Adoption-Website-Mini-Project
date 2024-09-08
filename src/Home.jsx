@@ -1,4 +1,5 @@
 import AboutUs from "./AboutUs/AboutUs";
+import Contact from "./Contact/Contact";
 import Hero from "./Hero/Hero";
 
 function Home() {
@@ -6,7 +7,9 @@ function Home() {
         <>
             <Hero />
             <hr />
-            <AboutUs /> 
+            <AboutUs />
+            <hr />
+            <Contact />
         </>
     ) 
 }
