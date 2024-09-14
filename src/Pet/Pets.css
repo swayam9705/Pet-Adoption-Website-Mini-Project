@@ -3,6 +3,8 @@
 .Pets {
     min-height: 100vh;
     padding: 4rem 0;
+    display: grid;
+    place-items: center;
 }
 
 .Pets__title {
@@ -12,12 +14,21 @@
 
 .Pets__container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 500px));
+    /* grid-template-columns: repeat(auto-fit, minmax(400px, 500px)); */
+    grid-template-columns: repeat(3, 1fr);
     place-items: start center;
-    grid-row-gap: 40px;
+    grid-gap: 40px;
     margin: 50px 0;
 }
 
+.Pets__readmore {
+    color: var(--white);
+    padding: 10px 15px;
+    font-size: 1.5rem;
+    border-radius: 10px;
+    background: var(--dark);
+    box-shadow: 0 0 10px var(--dark);
+}
 
 /* Pet Profile */
 

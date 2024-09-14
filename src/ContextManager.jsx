@@ -4,8 +4,10 @@ const initialState = {
     isUserLoggedIn: false,
     user: {
         email: "",
-        displayName: ""
-    }
+        displayName: "",
+        pets: []
+    },
+    pets: []
 }
 
 const StateContext = createContext()
@@ -13,14 +15,21 @@ const StateContext = createContext()
 const reducer = (state, action) => {
     switch (action.type) {
         case "LOGGED_IN":
-            console.log("user is logged in.")
             return {...state,
                     isUserLoggedIn: true,
                     user: {...state.user, ...action.user }
             }
         case "LOGGED_OUT":
-            console.log("user is logged out.")
             return { ...state, isUserLoggedIn: false }
+        case "FETCH_PET_DATA":
+            console.log("Data fetched")
+            return {
+                ...state,
+                pets: [
+                    ...state.pets,
+                    {...action.pet}
+                ]
+            }
         default:
             return state
     }

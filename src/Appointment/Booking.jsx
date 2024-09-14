@@ -9,6 +9,7 @@ import { db } from "../config/firebase_config"
 
 function Booking() {
 
+    const [ confirmed, setConfirmed ] = useState(false)
     const [ application, setApplication ] = useState(
         {
             firstName: "",
@@ -33,7 +34,8 @@ function Booking() {
         
         await setDoc(doc(db, "appointments", v4()), {
             ...application,
-                uploadTime: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`
+                uploadTime: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`,
+                approved: false
         })
         setApplication({
             firstName: "",
@@ -45,12 +47,20 @@ function Booking() {
             time: ""
         })
         console.log("Appointment booked.")
+        
+        setConfirmed(true)
     }
 
     return (
+        
         <div className="Booking">
-            <h2 className="Booking__title">Book a Visit</h2>
-            <form className="Booking__form">
+            <h2 className="Booking__title">
+                {
+                    confirmed ? "Your appointment is confirmed" : "Book a Visit"
+                }
+            </h2>
+            { !confirmed && 
+                <form className="Booking__form">
                 <div className="form__element form__name">
                     <span className="form__field name">Name</span>
                     <input
@@ -119,7 +129,9 @@ function Booking() {
                     />
                 </div>
                 <button onClick={handleSubmit} className="Booking__submit" type="submit">Send Request</button>
-            </form>
+            </form>   
+            }
+            
         </div>
     )
 }
