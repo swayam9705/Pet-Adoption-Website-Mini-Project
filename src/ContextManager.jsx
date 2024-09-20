@@ -22,7 +22,6 @@ const reducer = (state, action) => {
         case "LOGGED_OUT":
             return { ...state, isUserLoggedIn: false }
         case "FETCH_PET_DATA":
-            console.log("Data fetched")
             return {
                 ...state,
                 pets: [

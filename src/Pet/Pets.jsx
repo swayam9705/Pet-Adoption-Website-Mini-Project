@@ -3,7 +3,7 @@ import { useState, useEffect } from "react"
 import PetProfile from "./PetProfile"
 import "./Pets.css"
 
-// firebase import
+// firebase
 import { collection, getDocs } from "firebase/firestore"
 import { db } from "../config/firebase_config"
 
@@ -15,23 +15,7 @@ function Pets() {
 
     const [ state, dispatch ] = useStateValue()
 
-    useEffect(() => {
-        async function fetchPetData() {
-            (await getDocs(collection(db, "pet_info"))).forEach((doc) => {
-                dispatch({
-                    type: "FETCH_PET_DATA",
-                    pet: {
-                        ...doc.data(),
-                        id: doc.id
-                    }
-                })
-            })
-        }
-
-        fetchPetData()
-    }, [])
-
-    console.log(state.pets)
+    console.log(state)
 
     return (
         <div className="Pets">

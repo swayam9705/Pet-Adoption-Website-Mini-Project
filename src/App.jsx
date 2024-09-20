@@ -1,4 +1,9 @@
+import { useEffect, useState } from "react"
 import { Routes, Route } from "react-router-dom"
+
+// firebase
+import { collection, getDocs } from "firebase/firestore"
+import { db } from "./config/firebase_config"
 
 // componants
 import Navbar from "./Navbar/Navbar"
@@ -10,8 +15,30 @@ import Auth from "./Auth/Auth"
 import AboutUs from "./AboutUs/AboutUs"
 import Contact from "./Contact/Contact"
 import Booking from "./Appointment/Booking"
+import PetsPage from "./Pet/PetsPage"
+
+// Context
+import { useStateValue } from "./ContextManager"
 
 function App() {
+
+	const [ _, dispatch ] = useStateValue()
+	useEffect(() => {
+		async function fetchPetData() {
+			(await getDocs(collection(db, "pet_info"))).forEach((doc) => {
+				dispatch({
+					type: "FETCH_PET_DATA",
+					pet: {
+						...doc.data(),
+						id: doc.id
+					}
+				})
+			})
+		}
+
+		fetchPetData()
+	}, [])
+
 	return (
 		<div className="App">
 			<Navbar />
@@ -21,6 +48,7 @@ function App() {
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/auth" element={<Auth />} />
 				<Route path="/appointment" element={<Booking />} />
+				<Route path="/pets" element={<PetsPage />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 		</div>

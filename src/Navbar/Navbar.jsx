@@ -44,7 +44,7 @@ function Navbar() {
             </div>
             <ul className="Navbar__midsection">
                 <li className="Navbar__link"><Link to={"/"}>Home</Link></li>
-                <li className="Navbar__link"><Link to={"#"}>Pets</Link></li>
+                <li className="Navbar__link"><Link to={"/pets"}>Pets</Link></li>
                 <li className="Navbar__link"><Link to="aboutus">About Us</Link></li>
                 <li className="Navbar__link"><Link to="contact">Contact Us</Link></li>
             </ul>
@@ -69,7 +69,7 @@ function Navbar() {
             <ul ref={sidebar} className="Navbar__midsection Navbar__sidebar ">
                 <li onClick={toggleSidebar}><CloseIcon /></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/"}>Home</Link></li>
-                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Pets</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/pets"}>Pets</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/aboutus"}>About Us</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/contact"}>Contact Us</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Donate Us</Link></li>

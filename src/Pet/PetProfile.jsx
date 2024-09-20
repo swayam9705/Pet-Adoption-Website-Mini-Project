@@ -22,7 +22,9 @@ function PetProfile({ imageUrl, name, locations }) {
                 className="PetProfile__heart">
                 { like ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
             </div>
-            <img className="PetProfile__image" src={imageUrl} alt="Pet_image" />
+            <div className="PetProfile__image-container">
+                <img className="PetProfile__image" src={imageUrl} alt="Pet_image" />
+            </div>
             <div className="PetProfile__description">
                 <span className="PetProfile__name">{ name }</span>
                 <Link to={"/pets"}>Visit</Link>
