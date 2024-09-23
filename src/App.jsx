@@ -9,13 +9,15 @@ import { db } from "./config/firebase_config"
 import Navbar from "./Navbar/Navbar"
 import Home from "./Home"
 import PageNotFound from "./PageNotFound/PageNotFound"
-
-// auth components
-import Auth from "./Auth/Auth"
 import AboutUs from "./AboutUs/AboutUs"
 import Contact from "./Contact/Contact"
 import Booking from "./Appointment/Booking"
 import PetsPage from "./Pet/PetsPage"
+import PetDesc from "./Pet/PetDesc"
+
+// auth components
+import Auth from "./Auth/Auth"
+
 
 // Context
 import { useStateValue } from "./ContextManager"
@@ -49,6 +51,7 @@ function App() {
 				<Route path="/auth" element={<Auth />} />
 				<Route path="/appointment" element={<Booking />} />
 				<Route path="/pets" element={<PetsPage />} />
+				<Route path="/pet/:id" element={<PetDesc />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 		</div>
@@ -56,3 +59,4 @@ function App() {
 }
 
 export default App
+

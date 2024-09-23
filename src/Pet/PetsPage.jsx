@@ -48,14 +48,7 @@ function PetsPage() {
             </div>
             <div className="Pets__container">
                 {
-                    displayPets.map(({id, name, image_url, locations}) => (
-                        <PetProfile
-                            key={id}
-                            name={name}
-                            imageUrl={image_url}
-                            locations={locations}
-                        />
-                    ))
+                    displayPets.map(pet => <PetProfile key={pet.id} pet={pet} />)
                 }
             </div>
         </div>

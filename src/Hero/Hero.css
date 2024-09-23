@@ -22,8 +22,7 @@
     grid-area: b;
 }
 
-.Hero__adopt-btn {
-    position: relative;
+.Hero__adopt-btn{
     padding: 1rem 2rem;
     background: var(--dark);
     border-radius: 7px;
@@ -31,7 +30,7 @@
     font-size: 1.2rem;
     margin: 0 7rem;
     min-width: 170px;
-    z-index: -1;
+    text-align: center;
 }
 
 

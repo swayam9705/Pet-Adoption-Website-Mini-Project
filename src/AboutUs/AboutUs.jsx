@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import "./AboutUs.css"
 
 // images
@@ -19,7 +20,10 @@ function AboutUs() {
                 <img src={StockImage} alt="A stock image" />
                 <div className="AboutUs__image__shadow"></div>
             </div>
-            <button className="Hero__adopt-btn">Donate</button> 
+            <Link
+                className="Hero__adopt-btn"
+                to="#"
+            >Donate</Link> 
         </section>
     )
 }

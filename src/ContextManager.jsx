@@ -4,8 +4,7 @@ const initialState = {
     isUserLoggedIn: false,
     user: {
         email: "",
-        displayName: "",
-        pets: []
+        displayName: ""
     },
     pets: []
 }

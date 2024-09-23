@@ -1,0 +1,62 @@
+.PetDesc {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+    place-items: start;
+}
+
+.PetDesc__image-container {
+    padding-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgb(221, 221, 221);
+    place-self: center;
+}
+
+.PetDesc__image-container img {
+    max-width: 400px;
+    border-radius: 10px 10px 0 0;
+}
+
+.PetDesc__name {
+    font-size: 2rem;
+    margin-left: 20px;
+    color: grey;
+    text-align: center;
+}
+
+.PetDesc__info {
+    padding-left: 20px;
+    display: grid;
+    grid-gap: 20px;
+    width: 100vw;
+    max-width: 500px;
+    font-weight: 500;
+    color: grey;
+}
+
+.PetDesc__info ul {
+    display: inline-flex;
+}
+
+.PetDesc ul li {
+    margin: 2px;
+}
+
+.PetDesc__book-link {
+    padding: 5px 10px;
+    background: var(--dark);
+    color: var(--white);
+    width: 150px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+@media (max-width: 1000px) {
+    .PetDesc {
+        grid-template-columns: 1fr;
+    }
+}

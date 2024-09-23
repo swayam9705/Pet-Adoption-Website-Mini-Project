@@ -5,7 +5,7 @@ import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 import { Link } from "react-router-dom"
 
-function PetProfile({ imageUrl, name, locations }) {
+function PetProfile({ pet }) {
 
     const [like, setLike] = useState(false)
 
@@ -14,6 +14,8 @@ function PetProfile({ imageUrl, name, locations }) {
             return !l
         })
     }
+
+    console.log(pet)
     
     return (
         <div className="PetProfile">
@@ -23,14 +25,14 @@ function PetProfile({ imageUrl, name, locations }) {
                 { like ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
             </div>
             <div className="PetProfile__image-container">
-                <img className="PetProfile__image" src={imageUrl} alt="Pet_image" />
+                <img className="PetProfile__image" src={pet.image_url} alt="Pet_image" />
             </div>
             <div className="PetProfile__description">
-                <span className="PetProfile__name">{ name }</span>
-                <Link to={"/pets"}>Visit</Link>
+                <span className="PetProfile__name">{ pet.name }</span>
+                <Link to={`/pet/${pet.id}`}>Visit</Link>
                 <ul className="PetProfile__locations">
                     {
-                        locations.map(loc => <li key={loc}>{ loc }</li>)
+                        pet.locations.map(loc => <li key={loc}>{ loc }</li>)
                     }
                 </ul>
             </div>
@@ -38,10 +40,5 @@ function PetProfile({ imageUrl, name, locations }) {
     )
 }
 
-PetProfile.propTypes = {
-    imageUrl: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    locations: PropTypes.arrayOf(PropTypes.string).isRequired
-}
 
 export default PetProfile
