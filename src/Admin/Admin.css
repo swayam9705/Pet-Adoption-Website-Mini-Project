@@ -1,0 +1,45 @@
+.Admin__form {
+    width: 400px;
+    margin: 50px auto;
+    display: grid;
+    place-items: center;
+    box-shadow: 5px 10px 10px rgb(205, 205, 205);
+    outline: 1px solid rgb(240, 240, 240);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.Admin__title {
+    text-align: center;
+}
+
+.Admin__form-container {
+    display: grid;
+    width: 300px;
+    place-items: center;
+}
+
+.Admin__form-container input {
+    height: 30px;
+    margin: 10px 0;
+}
+
+.Admin__form-container button {
+    font-size: 18px;
+    padding: 5px 10px;
+    background: var(--dark);
+    color: var(--white);
+    border-radius: 10px;
+}
+
+.Admin__form-container input {
+    outline: none;
+    padding-left: 20px;
+    
+}
+
+.Admin__form-container input::placeholder {
+    font-size: 14px;
+    font-family: Inter;
+    font-style: italic;
+}

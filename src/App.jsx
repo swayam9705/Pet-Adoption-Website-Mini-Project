@@ -14,6 +14,7 @@ import Contact from "./Contact/Contact"
 import Booking from "./Appointment/Booking"
 import PetsPage from "./Pet/PetsPage"
 import PetDesc from "./Pet/PetDesc"
+import Admin from "./Admin/Admin"
 
 // auth components
 import Auth from "./Auth/Auth"
@@ -52,6 +53,7 @@ function App() {
 				<Route path="/appointment" element={<Booking />} />
 				<Route path="/pets" element={<PetsPage />} />
 				<Route path="/pet/:id" element={<PetDesc />} />
+				<Route path="/admin" element={<Admin />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
 		</div>

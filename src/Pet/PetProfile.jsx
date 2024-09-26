@@ -15,8 +15,6 @@ function PetProfile({ pet }) {
         })
     }
 
-    console.log(pet)
-    
     return (
         <div className="PetProfile">
             <div

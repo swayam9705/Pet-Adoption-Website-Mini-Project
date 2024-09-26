@@ -1,0 +1,95 @@
+.Appointment, .Inquiries {
+    width: calc(100vw - 50px);
+    max-width: 1000px;
+    margin: 50px auto;
+    box-shadow: 0 0px 20px rgb(230, 230, 230);
+    border-radius: 10px;
+    /* outline: 1px solid lightgrey; */
+    padding: 20px 0 20px 0;
+}
+
+.Appointment__title, .Inquiries__title {
+    text-align: center;
+}
+
+.AppointmentItem, .InquiryItem {
+    padding: 30px;
+    display: grid;
+    grid-gap: 10px;
+    position: relative;
+    background: var(--light);
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.AppointmentItem button, .AppointmentItem span {
+    width: 90px;
+    height: 40px;
+    margin-right: 20px;
+    border-radius: 10px;
+    /* color: var(--white); */
+    font-weight: 600;
+    font-size: 16px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.Appointment span {
+    padding: 5px 20px;
+}
+
+.Item__accept {
+    background: rgb(116, 199, 116);
+    color: rgb(3, 73, 3);
+
+}
+
+.Item__reject {
+    background: rgb(227, 110, 110);
+    color: rgb(128, 9, 9);
+}
+
+.Item__upload-time {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 12px;
+    font-weight: bold;
+    /* color: rgb(189, 189, 189); */
+    color: var(--dark);
+}
+
+.Inquiry__reply-text {
+    outline: none;
+    border-radius: 5px;
+    margin: 0 20px 20px 0;
+    height: 100px;
+    width: 500px;
+    resize: none;
+    padding: 5px;
+    font-size: 18px;
+    font-family: Inter;
+    display: block;
+}
+
+.Inquiry__reply-submit {
+    width: 70px;
+    height: 30px;
+    background: var(--dark);
+    color: var(--white);
+    border-radius: 5px;
+}
+
+.Inquiry__replied {
+    margin-top: 20px;
+    height: 50px;
+    display: flex;
+    width: 300px;
+    align-items: center;
+    background: rgb(92, 198, 92);
+    color: darkgreen;
+    font-weight: 600;
+    padding: 20px;
+    border-radius: 10px;
+
+}

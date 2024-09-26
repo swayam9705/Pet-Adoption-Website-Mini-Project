@@ -6,7 +6,9 @@ const initialState = {
         email: "",
         displayName: ""
     },
-    pets: []
+    pets: [],
+    inquiries: [],
+    appointments: []
 }
 
 const StateContext = createContext()
@@ -26,6 +28,23 @@ const reducer = (state, action) => {
                 pets: [
                     ...state.pets,
                     {...action.pet}
+                ]
+            }
+        case "FETCH_INQUIRIES":
+            return {
+                ...state,
+                inquiries: [
+                    ...state.inquiries,
+                    { ...action.inquiry }
+                ]
+            }
+
+        case "FETCH_APPOINTMENTS":
+            return {
+                ...state,
+                appointments: [
+                    ...state.appointments,
+                    { ...action.appointment }
                 ]
             }
         default:

@@ -35,8 +35,9 @@ function Booking() {
         await setDoc(doc(db, "appointments", v4()), {
             ...application,
                 uploadTime: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`,
-                approved: false
+                approved: "pending"
         })
+        
         setApplication({
             firstName: "",
             lastName: "",
