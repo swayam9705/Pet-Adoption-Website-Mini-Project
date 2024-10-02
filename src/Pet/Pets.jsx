@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react"
-
 import PetProfile from "./PetProfile"
 import "./Pets.css"
 
@@ -20,7 +18,7 @@ function Pets() {
                 state.pets.slice(0, 3).map(pet => <PetProfile key={pet.id} pet={pet}/>)
             }
             </div>
-            <Link className="Pets__readmore" to={"/pets"}>See More</Link>
+            <Link className="Pets__readmore btn-hover" to={"/pets"}>See More</Link>
         </div>
     )
 }

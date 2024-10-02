@@ -6,7 +6,9 @@ const initialState = {
         email: "",
         displayName: ""
     },
+    adminLoggedIn: false,
     pets: [],
+    unConfirmedPets: [],
     inquiries: [],
     appointments: []
 }
@@ -39,6 +41,15 @@ const reducer = (state, action) => {
                 ]
             }
 
+        case "ADD_APPOINTMENT":
+            return {
+                ...state,
+                appointment: [
+                    ...state.appointments,
+                    { ...action.appointment }
+                ]
+            }
+
         case "FETCH_APPOINTMENTS":
             return {
                 ...state,
@@ -47,6 +58,20 @@ const reducer = (state, action) => {
                     { ...action.appointment }
                 ]
             }
+        case "ADMIN_LOGGED_IN":
+            return {
+                ...state,
+                adminLoggedIn: true
+            }
+
+        case "REMOVE_PET":
+            const pets = state.pets.filter(item => item.id !== action.id)
+
+            return {
+                ...state,
+                pets: pets
+            }
+
         default:
             return state
     }

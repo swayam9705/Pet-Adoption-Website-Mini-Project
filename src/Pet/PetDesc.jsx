@@ -13,8 +13,6 @@ function PetDesc() {
         return pet.id === id
     })
 
-    console.log(petInfo)
-
     return (
         <div className="PetDesc">
             <div className="PetDesc__image-container">
@@ -24,14 +22,15 @@ function PetDesc() {
             <div className="PetDesc__info">
                 <p>Breed: { petInfo.breed }</p>
                 <p>Age: { petInfo.age }</p>
+                <p>Gender: { petInfo.sex }</p>
                 <ul>Locations: &nbsp;
                     {
                         petInfo.locations.map(loc => <li>{ loc }</li>)
                     }
                 </ul>
                 <Link
-                    className="PetDesc__book-link"
-                    to="/appointment"
+                    className="PetDesc__book-link btn-hover"
+                    to={`/appointment/${id}`}
                 >Book a Visit</Link>
             </div>
         </div>

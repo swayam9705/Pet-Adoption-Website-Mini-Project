@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useParams } from "react-router-dom"
 import "./Booking.css"
 
 import { v4 } from "uuid"
@@ -6,8 +7,12 @@ import { v4 } from "uuid"
 // firebase imports
 import { doc, setDoc } from "firebase/firestore"
 import { db } from "../config/firebase_config"
+import { useStateValue } from "../ContextManager"
 
 function Booking() {
+
+    const [ state, dispatch ] = useStateValue()
+    const { id } = useParams()
 
     const [ confirmed, setConfirmed ] = useState(false)
     const [ application, setApplication ] = useState(
@@ -31,11 +36,21 @@ function Booking() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const now = new Date()
+
+        const newAppointment = {
+            ...application,
+            uploadTime: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`,
+            approved: "pending",
+            petId: id
+        }
         
         await setDoc(doc(db, "appointments", v4()), {
-            ...application,
-                uploadTime: `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} - ${now.getHours()}:${now.getMinutes()}`,
-                approved: "pending"
+            ...newAppointment
+        })
+
+        dispatch({
+            type: "ADD_APPOINTMENT",
+            appointment: newAppointment
         })
         
         setApplication({
@@ -47,9 +62,14 @@ function Booking() {
             date: "",
             time: ""
         })
-        console.log("Appointment booked.")
-        
         setConfirmed(true)
+
+        // change the context API list of pets
+        dispatch({
+            type: "REMOVE_PET",
+            id: id
+        })
+
     }
 
     return (
@@ -57,7 +77,7 @@ function Booking() {
         <div className="Booking">
             <h2 className="Booking__title">
                 {
-                    confirmed ? "Your appointment is confirmed" : "Book a Visit"
+                    confirmed ? "Your appointment request is sent successfully" : "Book a Visit"
                 }
             </h2>
             { !confirmed && 

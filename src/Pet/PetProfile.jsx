@@ -1,5 +1,4 @@
 import React, { useState } from "react"
-import PropTypes from "prop-types"
 
 import FavoriteIcon from '@mui/icons-material/Favorite'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
@@ -20,7 +19,7 @@ function PetProfile({ pet }) {
             <div
                 onClick={handleLike}
                 className="PetProfile__heart">
-                { like ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />}
+                {/* { like ? <FavoriteIcon /> : <FavoriteBorderOutlinedIcon />} */}
             </div>
             <div className="PetProfile__image-container">
                 <img className="PetProfile__image" src={pet.image_url} alt="Pet_image" />

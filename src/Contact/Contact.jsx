@@ -30,6 +30,13 @@ function Contact() {
             replied: false,
             reply: ""
         })
+
+        setMessage({
+            firstName: "",
+            lastName: "",
+            email: "",
+            message: ""
+        })
     }
 
     return (
@@ -37,16 +44,15 @@ function Contact() {
             <h2 className="Contact__title">Contact Us</h2>
             <ul className="Contact__links">
                 <li>Resources</li>
-                <li><Link>Blog</Link></li>
-                <li><Link>Support</Link></li>
+                <li><Link to={"https://bestfriendspetcare.com/pet-adoption-everything-you-need-to-know/"} target="_blank">Blog</Link></li>
                 <li><Link>Developers</Link></li>
-                <li><Link>Resource Library</Link></li>
+                <li><Link to={"https://react.dev/"} target="_blank">Resource Library</Link></li>
             </ul>
             <ul className="Contact__social">
                 <li><Link><XIcon /></Link></li>
                 <li><Link><InstagramIcon /></Link></li>
-                <li><Link><YouTubeIcon /></Link></li>
-                <li><Link><LinkedInIcon /></Link></li>
+                <li><Link to={"https://www.youtube.com/watch?v=h5374FBZsz4"} target="_blank"><YouTubeIcon /></Link></li>
+                <li><Link to={"https://in.linkedin.com/in/ruturaj-asgolkar-a7749b32b"} target="_blank"><LinkedInIcon /></Link></li>
             </ul>
             <div className="Contact__form">
                 <div className="form-element first-name">
@@ -110,7 +116,7 @@ function Contact() {
                 </div>
                 <button
                     onClick={handleClick}
-                    className="Contact__submit"
+                    className="Contact__submit btn-hover"
                 >Submit</button>
             </div>
         </div>

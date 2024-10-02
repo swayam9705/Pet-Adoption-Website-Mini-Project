@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useParams, Link } from "react-router-dom"
 
 // Context
 import { useStateValue } from "../ContextManager"
@@ -36,6 +37,9 @@ function AppointmentItem({ appointment }) {
             <div className="Item__meeting-datetime">
                 <b>Meeting date and time:</b> { appointment.date } { appointment.time }
             </div>
+            <div className="Item__pet-id">
+                <b>Pet Id: <Link to={`/pet/${appointment.petId}`}>Click here for selected pet</Link></b>
+            </div>
             <div className="Item__approve">
                 {
                     approved === "pending" &&
@@ -68,13 +72,17 @@ function Appointments( { appointments }) {
 
     const [ state, _ ] = useStateValue()
 
+    const displayAppointments = appointments.filter(item => item.approved === "pending")
+
     return (
         <div className="Appointment">
             <h2 className="Appointment__title">Appointments</h2>
             <hr />
             <div className="Appointments__container">
-                {
-                    appointments.filter(item => item.approved === "pending").map(item => <AppointmentItem key={item.id} appointment={item} />)
+                {   
+                    displayAppointments.length === 0 ? 
+                    <span className="dummy-text">No appointments yet</span> :
+                    displayAppointments.map(item => <AppointmentItem key={item.id} appointment={item} />)
                 }
             </div>
         </div>

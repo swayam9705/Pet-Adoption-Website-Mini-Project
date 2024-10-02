@@ -43,3 +43,8 @@
     font-family: Inter;
     font-style: italic;
 }
+
+.dummy-text {
+    display: block;
+    text-align: center;
+}

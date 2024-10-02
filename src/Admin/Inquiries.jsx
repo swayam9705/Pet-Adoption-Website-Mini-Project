@@ -13,12 +13,15 @@ function InquiryItem({ inquiry }) {
     const [ message, setMessage ] = useState("")
 
     const handleSubmit = e => {
-        setReplied(true)
 
-        updateDoc(doc(db, "inquiry", inquiry.id), {
-            reply: message,
-            replied: true
-        })
+        if (message !== "") {
+            setReplied(true)
+    
+            updateDoc(doc(db, "inquiry", inquiry.id), {
+                reply: message,
+                replied: true
+            })
+        }
     }
 
     return (
@@ -60,13 +63,18 @@ function InquiryItem({ inquiry }) {
 }
 
 function Inquiries({ inquiries }) {
+
+    console.log(inquiries)
+
     return (
         <div className="Inquiries">
             <h2 className="Inquiries__title">INQUIRIES</h2>
             <hr />
             <div className="Inquiries__container">
                 {
-                    inquiries.filter(item => item.replied === false).map(item => (
+                    inquiries.length === 0 ? 
+                    <span className="dummy-text">No inquiries yet.</span> :
+                    inquiries.map(item => (
                         <InquiryItem
                             key={item.id}
                             inquiry={item}

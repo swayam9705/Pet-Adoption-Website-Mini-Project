@@ -10,7 +10,7 @@ function Hero() {
             <h2 className="Hero__big-text">Let's save and give them a Paw-sitive future.</h2>
             <div className="Hero__small-area">
                 <Link
-                    className="Hero__adopt-btn"
+                    className="Hero__adopt-btn btn-hover"
                     to="/pets" 
                 >Adopt a Pet</Link>
             </div>

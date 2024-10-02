@@ -27,7 +27,6 @@
     font-size: 1.5rem;
     border-radius: 10px;
     background: var(--dark);
-    box-shadow: 0 0 10px var(--dark);
 }
 
 /* Pet Profile */
@@ -130,15 +129,29 @@
     border-radius: 5px 0 0 5px;
     border: none;
     border-right: 1px solid grey;
-    box-shadow: 0 0 10px lightgrey;
     background: var(--white);
+    /* border-top: 1px solid;
+    border-left: 1px solid;
+    border-bottom: 1px solid; */
+    background: var(--light);
+    color: var(--dark);
 }
 
 .PetsPage__search-btn {
     padding: 5px 10px;
     border-radius: 0 5px 5px 0;
-    box-shadow: 0 0 10px lightgrey;
     background: var(--white);
+    /* border-top: 1px solid;
+    border-right: 1px solid;
+    border-bottom: 1px solid; */
+    background: var(--light);
+    transition: 0.2s;
+    color: var(--dark);
+}
+
+.PetsPage__search-btn:hover {
+    background: var(--dark);
+    color: var(--white);
 }
 
 .PetsPage__search * {

@@ -12,7 +12,7 @@ import { useStateValue } from "../ContextManager"
 
 // firebase
 import { auth } from "../config/firebase_config"
-import { onAuthStateChanged, signOut } from "firebase/auth"
+import { signOut } from "firebase/auth"
 
 function Navbar() {
 
@@ -47,9 +47,9 @@ function Navbar() {
                 <li className="Navbar__link"><Link to={"/pets"}>Pets</Link></li>
                 <li className="Navbar__link"><Link to="aboutus">About Us</Link></li>
                 <li className="Navbar__link"><Link to="contact">Contact Us</Link></li>
+                <li className="Navbar__link"><Link to={"/admin"}>Admin</Link></li>
             </ul>
             <div className="Navbar__right">
-                <Link to={"#"} className="Navbar__btn">Donate</Link>
                 <div className="Navbar__dropdown">
                     <Link to={"/auth"} className="Navbar__auth Navbar__btn">{ state.isUserLoggedIn ? state.user.email : "Sign in"}
                     </Link>
@@ -57,7 +57,6 @@ function Navbar() {
                         state.isUserLoggedIn &&
                         <ul className="dropdown-box">
                             <li><button onClick={handleLogout}>Logout</button></li>
-                            <li><Link to={"#"}>Profile</Link></li>
                         </ul>
                     }
                 </div>
@@ -72,7 +71,7 @@ function Navbar() {
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/pets"}>Pets</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/aboutus"}>About Us</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/contact"}>Contact Us</Link></li>
-                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"#"}>Donate Us</Link></li>
+                <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/admin"}>Admin</Link></li>
                 <li onClick={toggleSidebar} className="Navbar__link"><Link to={"/auth"}>Sign Up</Link></li>
             </ul>
         </div>

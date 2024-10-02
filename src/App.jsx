@@ -26,7 +26,10 @@ import { useStateValue } from "./ContextManager"
 function App() {
 
 	const [ _, dispatch ] = useStateValue()
+
 	useEffect(() => {
+
+		// fetching pet data
 		async function fetchPetData() {
 			(await getDocs(collection(db, "pet_info"))).forEach((doc) => {
 				dispatch({
@@ -39,7 +42,37 @@ function App() {
 			})
 		}
 
+		// fetching Inquiries
+		async function fetchInquiries() {
+			(await getDocs(collection(db, "inquiry"))).forEach(
+				doc => {
+					dispatch({
+						type: "FETCH_INQUIRIES",
+						inquiry: {
+							...doc.data(),
+							id: doc.id
+						}
+					})
+				}
+			)
+		}
+
+		// fetching appointments
+		async function fetchAppointments() {
+			(await getDocs(collection(db, "appointments"))).forEach(doc => {
+				dispatch({
+					type: "FETCH_APPOINTMENTS",
+					appointment: {
+						...doc.data(),
+						id: doc.id
+					}
+				})
+			})
+		}
+
 		fetchPetData()
+		fetchInquiries()
+		fetchAppointments()
 	}, [])
 
 	return (
@@ -50,7 +83,7 @@ function App() {
 				<Route path="/aboutus" element={<AboutUs />} />
 				<Route path="/contact" element={<Contact />} />
 				<Route path="/auth" element={<Auth />} />
-				<Route path="/appointment" element={<Booking />} />
+				<Route path="/appointment/:id" element={<Booking />} />
 				<Route path="/pets" element={<PetsPage />} />
 				<Route path="/pet/:id" element={<PetDesc />} />
 				<Route path="/admin" element={<Admin />} />

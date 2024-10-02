@@ -38,3 +38,11 @@ button {
 ul {
     list-style-type: none;
 }
+
+.btn-hover {
+    transition: 0.2s;
+}
+
+.btn-hover:hover {
+    transform: scale(1.1);
+}

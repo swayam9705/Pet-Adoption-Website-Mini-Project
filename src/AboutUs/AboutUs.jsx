@@ -20,10 +20,6 @@ function AboutUs() {
                 <img src={StockImage} alt="A stock image" />
                 <div className="AboutUs__image__shadow"></div>
             </div>
-            <Link
-                className="Hero__adopt-btn"
-                to="#"
-            >Donate</Link> 
         </section>
     )
 }

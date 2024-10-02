@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react"
+import { useState } from "react"
 
 import "./Admin.css"
 
@@ -9,54 +9,11 @@ import Inquiries from "./Inquiries"
 // Context
 import { useStateValue } from "../ContextManager"
 
-// firebase import
-import { collection, getDocs } from "firebase/firestore"
-import { db } from "../config/firebase_config"
-
-
-
 function Admin() {
 
-    const [ isAdmin, setIsAdmin ] = useState(false)
     const [ user, setUser ] = useState({ username: "", password: "" })
 
     const [ state, dispatch ] = useStateValue()
-
-    useEffect(() => {
-    
-        async function fetchInquiries() {
-
-            // fetching inquiries
-            (await getDocs(collection(db, "inquiry"))).forEach((doc) => {
-                dispatch({
-                    type: "FETCH_INQUIRIES",
-                    inquiry: {
-                        ...doc.data(),
-                        id: doc.id
-                    }
-                })
-            })
-        }
-
-        // fetching appointments
-        async function fetchAppointments() {
-            (await getDocs(collection(db, "appointments"))).forEach(doc => {
-                dispatch({
-                    type: "FETCH_APPOINTMENTS",
-                    appointment: {
-                        ...doc.data(),
-                        id: doc.id
-                    }
-                })
-            })
-        }
-         
-
-
-        fetchInquiries()
-        fetchAppointments()
-    }, [])
-
 
     const handleChange = e => {
         setUser(prev => {
@@ -68,21 +25,21 @@ function Admin() {
     }
 
     const handleClick = e => {
-        if (user.username === "" && user.password === "") {
-            setIsAdmin(true)
+        if (user.username === "admin" && user.password === "admin123") {
+            dispatch({ type: "ADMIN_LOGGED_IN" })
         }
     }
 
     return (
         <div className="Admin">
             {
-                isAdmin ? 
+                state.adminLoggedIn ? 
                     <div className="Admin__dashboard">
                         <Appointments
                             appointments={state.appointments} 
                         />
                         <Inquiries
-                            inquiries={state.inquiries}
+                            inquiries={state.inquiries.filter(item => item.replied === false)}
                         />
                     </div>
                     :
