@@ -6,11 +6,15 @@ import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline'
 import { updateDoc, doc } from "firebase/firestore"
 import { db } from "../config/firebase_config"
 
+// Context
+import { useStateValue } from "../ContextManager"
+
 function InquiryItem({ inquiry }) {
 
     const [ replied, setReplied ] = useState(false)
-    
     const [ message, setMessage ] = useState("")
+
+    const [ state, dispatch ] = useStateValue()
 
     const handleSubmit = e => {
 
@@ -22,6 +26,14 @@ function InquiryItem({ inquiry }) {
                 replied: true
             })
         }
+
+        setTimeout(() => {
+            dispatch({
+                type: "REMOVE_INQUIRY",
+                id: inquiry.id
+            })
+        }, 3000)
+
     }
 
     return (

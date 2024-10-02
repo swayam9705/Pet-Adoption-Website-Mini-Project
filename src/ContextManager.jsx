@@ -86,6 +86,20 @@ const reducer = (state, action) => {
                 pets: pets
             }
 
+        case "REMOVE_APPOINTMENT":
+            const appointments = state.appointments.filter(item => item.id !== action.id)
+            return {
+                ...state,
+                appointments: appointments
+            }
+        
+        case "REMOVE_INQUIRY":
+            const inquiries = state.inquiries.filter(item => item.id !== action.id)
+            return {
+                ...state,
+                inquiries: inquiries
+            }
+
         default:
             return state
     }

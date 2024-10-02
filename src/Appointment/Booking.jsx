@@ -77,7 +77,7 @@ function Booking() {
         <div className="Booking">
             <h2 className="Booking__title">
                 {
-                    confirmed ? "Your appointment is confirmed" : "Book a Visit"
+                    confirmed ? "Your appointment application is submitted successfully" : "Book a Visit"
                 }
             </h2>
             { !confirmed && 

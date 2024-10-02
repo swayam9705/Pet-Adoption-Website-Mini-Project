@@ -25,6 +25,14 @@ function AppointmentItem({ appointment }) {
             id: appointment.petId
         })
 
+        setTimeout(() => {
+            dispatch({
+                type: "REMOVE_APPOINTMENT",
+                id: appointment.id
+            })
+        }, 3000)
+
+
     }
 
     const handleReject = e => {
@@ -32,6 +40,15 @@ function AppointmentItem({ appointment }) {
         updateDoc(doc(db, "appointments", appointment.id), {
             approved: "false"
         })
+
+        setTimeout(() => {
+            dispatch({
+                type: "REMOVE_APPOINTMENT",
+                id: appointment.id
+            })
+        }, 3000)
+
+
     }
 
     return (
