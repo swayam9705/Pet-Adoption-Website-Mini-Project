@@ -15,7 +15,12 @@ import InstagramIcon from '@mui/icons-material/Instagram'
 import YouTubeIcon from '@mui/icons-material/YouTube'
 import LinkedInIcon from '@mui/icons-material/LinkedIn'
 
+// Context 
+import { useStateValue } from "../ContextManager"
+
 function Contact() {
+
+    const [ state, dispatch ] = useStateValue()
 
     const [ message, setMessage ] = useState({
         firstName: "",
@@ -29,6 +34,15 @@ function Contact() {
             ...message,
             replied: false,
             reply: ""
+        })
+
+        dispatch({
+            type: "ADD_INQUIRY",
+            inquiry: {
+                ...message,
+                replied: false,
+                reply: ""
+            }
         })
 
         setMessage({

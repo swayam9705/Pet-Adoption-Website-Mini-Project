@@ -12,11 +12,19 @@ function AppointmentItem({ appointment }) {
 
     const [ approved, setApproved ] = useState("pending")
 
+    const [ _, dispatch ] = useStateValue()
+
     const handleAccept = e => {
         setApproved("true")
         updateDoc(doc(db, "appointments", appointment.id), {
             approved: "true"
         })
+
+        dispatch({
+            type: "REMOVE_PET",
+            id: appointment.petId
+        })
+
     }
 
     const handleReject = e => {

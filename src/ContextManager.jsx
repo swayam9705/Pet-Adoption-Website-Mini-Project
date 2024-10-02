@@ -42,11 +42,25 @@ const reducer = (state, action) => {
             }
 
         case "ADD_APPOINTMENT":
+            console.log('app. added')
+            console.log(state.appointments)
             return {
                 ...state,
-                appointment: [
+                appointments: [
                     ...state.appointments,
                     { ...action.appointment }
+                ]
+            }
+
+        case "ADD_INQUIRY":
+
+            console.log('Inquiry added')
+            console.log(state.inquiries)
+            return {
+                ...state,
+                inquiries: [
+                    ...state.inquiries,
+                    { ...action.inquiry }
                 ]
             }
 
