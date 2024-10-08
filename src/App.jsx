@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect } from "react"
 import { Routes, Route } from "react-router-dom"
 
 // firebase
@@ -25,7 +25,7 @@ import { useStateValue } from "./ContextManager"
 
 function App() {
 
-	const [ _, dispatch ] = useStateValue()
+	const [ { isUserLoggedIn }, dispatch ] = useStateValue()
 
 	useEffect(() => {
 
@@ -79,13 +79,13 @@ function App() {
 		<div className="App">
 			<Navbar />
 			<Routes>
-				<Route exact path="/" element={<Home />} />
-				<Route path="/aboutus" element={<AboutUs />} />
-				<Route path="/contact" element={<Contact />} />
+				<Route exact path="/" element={ isUserLoggedIn ? <Home /> : <Auth />} />
+				<Route path="/aboutus" element={ isUserLoggedIn ? <AboutUs /> : <Auth />} />
+				<Route path="/contact" element={ isUserLoggedIn ? <Contact /> : <Auth />} />
 				<Route path="/auth" element={<Auth />} />
-				<Route path="/appointment/:id" element={<Booking />} />
-				<Route path="/pets" element={<PetsPage />} />
-				<Route path="/pet/:id" element={<PetDesc />} />
+				<Route path="/appointment/:id" element={ isUserLoggedIn ? <Booking /> : <Auth />} />
+				<Route path="/pets" element={ isUserLoggedIn ? <PetsPage /> : <Auth />} />
+				<Route path="/pet/:id" element={ isUserLoggedIn ? <PetDesc /> : <Auth />} />
 				<Route path="/admin" element={<Admin />} />
 				<Route path="*" element={<PageNotFound />} />
 			</Routes>
